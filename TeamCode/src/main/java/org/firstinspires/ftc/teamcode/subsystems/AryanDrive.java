@@ -6,6 +6,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+/**
+ * Collaborators: Missingpiece
+ */
 
 /*
 public Drive(HardwareMap hardwareMap, Telemetry telemetry);
@@ -19,12 +22,10 @@ public class AryanDrive {
     private final DcMotor frontRight;
     private final DcMotor backLeft;
     private final DcMotor backRight;
+    private double speed;
     private final Telemetry telemetry;
 
-    public AryanDrive(OpMode opMode) {
-        this(opMode.hardwareMap, opMode.telemetry);
-    }
-
+    // This is a constructor
     public AryanDrive(HardwareMap hardwareMap, Telemetry telemetry) {
 
         // Instantiates motors
@@ -40,10 +41,10 @@ public class AryanDrive {
         backRight.setDirection(DcMotor.Direction.FORWARD);
 
         // Set mode is good practice -- RUN_WITHOUT_ENCODER is default
-        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -54,19 +55,30 @@ public class AryanDrive {
         this.telemetry = telemetry;
     }
 
-    public void drive(double x, double y, double t) {
-        double flPower = y + x - t;
-        double frPower = y - x + t;
-        double blPower = y - x - t;
-        double brPower = y + x + t;
-
-        frontLeft.setPower(flPower);
-        frontRight.setPower(frPower);
-        backLeft.setPower(blPower);
-        backRight.setPower(brPower);
+    private void setDrivePowers(double flPower, double frPower, double blPower, double brPower) {
+        frontLeft.setPower(flPower * speed);
+        frontRight.setPower(frPower * speed);
+        backLeft.setPower(blPower * speed);
+        backRight.setPower(brPower * speed);
     }
 
-    public void stop() {
-        drive(0, 0, 0);
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void updateBackwards(double x, double y, double rx) {
+        update(x, -y, rx);
+    }
+
+    public void update(double x, double y, double rx) {
+        double flPower = y + x + rx;
+        double frPower = y - x - rx;
+        double blPower = y - x + rx;
+        double brPower = y + x - rx;
+        setDrivePowers(flPower, frPower, blPower, brPower);
     }
 }
