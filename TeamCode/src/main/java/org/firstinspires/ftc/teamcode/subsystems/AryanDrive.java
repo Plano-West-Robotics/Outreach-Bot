@@ -5,15 +5,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-/**
- * Collaborators: Missingpiece
- */
-
-/*
-public Drive(HardwareMap hardwareMap, Telemetry telemetry);
-* public void update(double x, double rx, double y);
-* */
-
 public class AryanDrive {
 
     // Null by default
