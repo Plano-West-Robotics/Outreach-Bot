@@ -8,7 +8,6 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class AryanClaw {
     private final Servo claw;
     private final Telemetry telemetry;
-
     public static final double POS_OPEN = 0;
     public static final double POS_CLOSE = 1;
 

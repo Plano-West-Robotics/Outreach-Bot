@@ -6,12 +6,14 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.subsystems.AryanArm;
 import org.firstinspires.ftc.teamcode.subsystems.AryanClaw;
 import org.firstinspires.ftc.teamcode.subsystems.AryanDrive;
+import org.firstinspires.ftc.teamcode.subsystems.AryanLift;
 
 @TeleOp
 public class MyTeleOP extends OpMode {
     private AryanDrive drive;
     private AryanArm arm;
     private AryanClaw claw;
+    private AryanLift lift;
 
     @Override
     public void init() {
@@ -19,7 +21,12 @@ public class MyTeleOP extends OpMode {
         drive.setSpeed(0.5);
 
         claw = new AryanClaw(hardwareMap, telemetry);
+
         arm = new AryanArm(hardwareMap, telemetry);
+
+        lift = new AryanLift(hardwareMap, telemetry);
+        lift.setSpeed(0.5);
+        lift.setManual(false);
     }
 
     @Override

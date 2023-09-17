@@ -50,6 +50,8 @@ public class AryanDrive {
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        speed = 1;
+
         // Assigns telemetry
         this.telemetry = telemetry;
     }
