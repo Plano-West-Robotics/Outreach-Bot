@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -9,6 +10,7 @@ import org.firstinspires.ftc.teamcode.subsystems.AryanDrive;
 import org.firstinspires.ftc.teamcode.subsystems.AryanIntake;
 import org.firstinspires.ftc.teamcode.subsystems.AryanLift;
 
+@Disabled
 @TeleOp
 public class MyTeleOP extends OpMode {
     private AryanDrive drive;

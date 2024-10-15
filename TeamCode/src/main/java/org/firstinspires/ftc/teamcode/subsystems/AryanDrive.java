@@ -47,7 +47,7 @@ public class AryanDrive {
         this.telemetry = telemetry;
     }
 
-    private void setDrivePowers(double flPower, double frPower, double blPower, double brPower) {
+    public void setDrivePowers(double flPower, double frPower, double blPower, double brPower) {
         frontLeft.setPower(flPower * speed);
         frontRight.setPower(frPower * speed);
         backLeft.setPower(blPower * speed);
