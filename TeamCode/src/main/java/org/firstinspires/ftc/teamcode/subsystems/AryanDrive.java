@@ -10,8 +10,8 @@ public class AryanDrive {
     // Null by default
     private final DcMotor frontLeft;
     private final DcMotor frontRight;
-    private final DcMotor backLeft;
-    private final DcMotor backRight;
+    //private final DcMotor backLeft;
+    //private final DcMotor backRight;
     private double speed;
     private final Telemetry telemetry;
 
@@ -21,25 +21,25 @@ public class AryanDrive {
         // Instantiates motors
         frontLeft = hardwareMap.get(DcMotor.class,"FLmotor");
         frontRight = hardwareMap.get(DcMotor.class, "FRmotor");
-        backLeft = hardwareMap.get(DcMotor.class, "BLmotor");
-        backRight = hardwareMap.get(DcMotor.class, "BRmotor");
+        //backLeft = hardwareMap.get(DcMotor.class, "BLmotor");
+        //backRight = hardwareMap.get(DcMotor.class, "BRmotor");
 
         // Sets direction for motors -- forward is default
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
-        backLeft.setDirection(DcMotor.Direction.REVERSE);
+        //backLeft.setDirection(DcMotor.Direction.REVERSE);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
-        backRight.setDirection(DcMotor.Direction.FORWARD);
+        //backRight.setDirection(DcMotor.Direction.FORWARD);
 
         // Set mode is good practice -- RUN_WITHOUT_ENCODER is default
         frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         speed = 1;
 
@@ -50,8 +50,8 @@ public class AryanDrive {
     public void setDrivePowers(double flPower, double frPower, double blPower, double brPower) {
         frontLeft.setPower(flPower * speed);
         frontRight.setPower(frPower * speed);
-        backLeft.setPower(blPower * speed);
-        backRight.setPower(brPower * speed);
+        //backLeft.setPower(blPower * speed);
+        //backRight.setPower(brPower * speed);
     }
 
     public void setSpeed(double speed) {

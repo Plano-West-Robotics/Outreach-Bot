@@ -7,14 +7,14 @@ import org.firstinspires.ftc.teamcode.subsystems.AryanDrive;
 
 @TeleOp(name = "Tank Drive")
 public class TankTeleOp extends OpMode {
-    private AryanArm arm;
+    //private AryanArm arm;
     private AryanDrive drive;
     double leftPower;
     double rightPower;
 
     public void init() {
         drive = new AryanDrive(hardwareMap, telemetry);
-        arm = new AryanArm(hardwareMap, telemetry);
+        //arm = new AryanArm(hardwareMap, telemetry);
     }
 
     public void loop() {
@@ -25,10 +25,10 @@ public class TankTeleOp extends OpMode {
 
         if (gamepad1.cross) {
             // arbitrary
-            arm.setPosition(200);
+            //arm.setPosition(200);
         }
         if (gamepad1.circle) {
-            arm.setPosition(0);
+            //arm.setPosition(0);
         }
     }
 }
